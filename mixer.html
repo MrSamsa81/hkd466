@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-audio-mixer/dist/vue-audio-mixer.min.css">
+  </head>
+  <body>
+
+  <div id="app">
+    <div>
+      <div style="text-align: center;">
+        <div style="position:relative; display: inline-block; ">
+          <vue-audio-mixer 
+              :config="config" 
+              size="medium" 
+              theme="dark" 
+              :show-pan="true"
+              :show-total-time="true"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue-audio-mixer/dist/vue-audio-mixer.min.js"></script>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data : function(){     
+        return {
+          is_loaded:false,
+          newconfig:{},
+          config:
+{
+  "tracks": [
+    {
+      "title": "Bass",
+      "url": "https://api.soundcloud.com/tracks/841840237/stream?client_id=ae1dadcc70f054f451de8c6358bcf396",
+      "pan": -30,
+      "gain": 0.5,
+      "muted": false,
+      "hidden": false
+    },
+    {
+      "title": "Flutes",
+      "url": "https://api.soundcloud.com/tracks/841840234/stream?client_id=ae1dadcc70f054f451de8c6358bcf396",
+      "pan": 81,
+      "gain": 1.08,
+      "muted": false,
+      "hidden": false
+    },
+   
+  ],
+  "master": {
+    "pan": 0,
+    "gain": 1,
+    "muted": false
+  }
+}
+
+            
+          }  
+        }
+      })
+    </script> 
+
+  </body>
+</html>
